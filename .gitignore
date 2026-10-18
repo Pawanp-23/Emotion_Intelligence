@@ -60,3 +60,4 @@ backend/uploads/
 
 # ---------- downloaded model files (fetched by scripts, never committed)
 ml/data/models/
+docs/presentation/guide.html

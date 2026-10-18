@@ -81,7 +81,7 @@ The internship started from two audio-only artefacts:
 - A reliability-gated fusion model trained with corruption and modality-dropout augmentation,
   plus ablations isolating the effect of reliability.
 - An end-to-end platform (FastAPI + React) with explanations, alerts and summaries.
-- Engineering practice: architecture decision records, CI, 62 automated tests, container images.
+- Engineering practice: architecture decision records, CI, 64 automated tests, container images.
 
 ## 1.5 Report structure
 
@@ -283,7 +283,7 @@ keeps the same interfaces, so the production path stays open.
 
 - **Documentation:** PRD, TRD, system architecture document, architecture decision records,
   and a report per milestone.
-- **Tests:** 62 automated tests (38 ML, 19 backend, 5 frontend) that run without datasets.
+- **Tests:** 64 automated tests (39 ML, 20 backend, 5 frontend) that run without datasets.
 - **CI:** GitHub Actions runs linting, type-checking, tests and the frontend build on every push.
 
 # 5. Results
