@@ -19,6 +19,7 @@ option instead of guessing, and an explanation of why.
 | — | [Milestone reports](docs/reports/) | Results of each phase (M0 baseline, M1 branches, M2 fusion) |
 | — | [Final report](docs/reports/Final-Report.md) | The whole project in one document (Word version built by `scripts/report`) |
 | — | [Demo runbook](docs/demo/Demo-Script.md) | Demo preparation, 6-minute video script, likely questions |
+| — | [Presentation guide (PDF)](docs/presentation/RAMEI-Presentation-Guide.pdf) | Faculty presentation pack: diagrams, results, screenshots, script, Q&A |
 
 ## Architecture at a glance
 
