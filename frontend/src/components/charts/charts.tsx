@@ -90,7 +90,8 @@ export function EmotionTimeline({
       >
         <CartesianGrid stroke={t.grid} vertical={false} />
         <XAxis dataKey="t" type="number" domain={["dataMin", "dataMax"]} tickFormatter={clock} {...axisProps(t.axis)} />
-        <YAxis domain={[0, 1]} tickFormatter={(v) => `${v * 100}%`} {...axisProps(t.axis)} />
+        {/* Stacked probabilities can sum to 1.0001 in floating point; clamp so the axis stays at 100%. */}
+        <YAxis domain={[0, 1]} allowDataOverflow ticks={[0, 0.25, 0.5, 0.75, 1]} tickFormatter={(v) => `${Math.round(v * 100)}%`} {...axisProps(t.axis)} />
         {alerts.map((a) => (
           <ReferenceArea key={a.id} x1={a.start_ms} x2={a.end_ms ?? a.start_ms} fill={t.danger} fillOpacity={0.08} ifOverflow="extendDomain" />
         ))}
