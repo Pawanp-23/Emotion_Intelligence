@@ -18,6 +18,7 @@ option instead of guessing, and an explanation of why.
 | — | [Architecture Decision Records](docs/adr/) | Why key decisions were made (incl. [ADR-0008](docs/adr/0008-local-first-implementation-choices.md) on implementation choices) |
 | — | [Milestone reports](docs/reports/) | Results of each phase (M0 baseline, M1 branches, M2 fusion) |
 | — | [Final report](docs/reports/Final-Report.md) | The whole project in one document (Word version built by `scripts/report`) |
+| — | [Run on another computer](docs/RUN-ON-ANOTHER-COMPUTER.md) | Run with a shared 9 MB model zip — no retraining |
 | — | [Demo runbook](docs/demo/Demo-Script.md) | Demo preparation, 6-minute video script, likely questions |
 | — | [Presentation guide (PDF)](docs/presentation/RAMEI-Presentation-Guide.pdf) | Faculty presentation pack: diagrams, results, screenshots, script, Q&A |
 
@@ -58,7 +59,8 @@ pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu124 
 pip install -e ".[dev,audio,multimodal]"
 pip install -e "../backend[dev,inference]"
 
-# 2. Model bundle (trains on CREMA-D; see ml/README.md and docs/reports for details)
+# 2. Model bundle — trains on CREMA-D (~6 h). Already have the trained model zip? Skip this
+#    step and follow docs/RUN-ON-ANOTHER-COMPUTER.md instead.
 python scripts/download_crema_d.py && python scripts/download_crema_d_video.py
 python -m ramei_ml.training.text_branch
 python scripts/run_m2.py           # features -> cross-validation -> bundle (~6 h on an RTX 3050, resumable)
