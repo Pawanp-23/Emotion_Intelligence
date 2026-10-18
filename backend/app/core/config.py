@@ -3,6 +3,7 @@
 from functools import lru_cache
 from pathlib import Path
 
+from pydantic import field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 BACKEND_ROOT = Path(__file__).resolve().parents[2]
@@ -42,6 +43,12 @@ class Settings(BaseSettings):
     llm_model: str = "claude-opus-5-5"
     llm_api_key: str = ""
     llm_timeout_s: float = 20.0
+
+    @field_validator("upload_dir", "model_bundle_dir")
+    @classmethod
+    def _repo_relative(cls, v: Path) -> Path:
+        """Relative paths (as in .env) mean 'from the repository root', not from the cwd."""
+        return v if v.is_absolute() else (REPO_ROOT / v).resolve()
 
 
 @lru_cache
